@@ -1,2 +1,5 @@
 data/COELHO_MODELS/*
 data/COELHO_MODELS/*/
+*.o
+__pycache__
+*.so
