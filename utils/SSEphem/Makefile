@@ -3,12 +3,12 @@
 # JPL DE403 ephemerides.
 
 #Update this line!
-PY_PREFIX := /anaconda/
+PY_PREFIX := /usr
 
 #You might also need to update these other three lines
 SWIG = swig
-INUM = $(PY_PREFIX)/lib/python2.7/site-packages/numpy/core/include/numpy/
-PY   = $(PY_PREFIX)/include/python2.7/
+INUM = $(PY_PREFIX)/lib/python3.6/site-packages/numpy/core/include/numpy/
+PY   = $(PY_PREFIX)/include/python3.6m/
 
 # Do not change below here
 ISOFA = ./SOFA
@@ -18,7 +18,7 @@ CPP = g++ -fPIC
 POSTSTEP =
 ifeq ($(shell uname),Darwin)
     # XXX disgusting
-    POSTSTEP = install_name_tool -change libpython2.7.dylib $(PY_PREFIX)/lib/libpython2.7.dylib _jplephem.so
+    POSTSTEP = install_name_tool -change libpython3.6m.dylib $(PY_PREFIX)/lib/libpython2.7.dylib _jplephem.so
 endif
 
 #INCLUDE = -I. -I$(ISLALIB)
@@ -65,7 +65,7 @@ EXECUTABLES = _jplephem.so \
 all: $(EXECUTABLES)
 
 _jplephem.so : jplephem_wrap.o $(OBJ_FILES)
-	$(CPP) -lpython2.7 -shared jplephem_wrap.o $(OBJ_FILES) $(LIBRARIES) \
+	$(CPP) -lpython3.6m -shared jplephem_wrap.o $(OBJ_FILES) $(LIBRARIES) \
 					-lsofa_c -o _jplephem.so
 	$(POSTSTEP)
 
