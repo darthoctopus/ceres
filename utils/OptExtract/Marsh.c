@@ -1335,8 +1335,22 @@ static PyMethodDef MarshMethods[] = {
 	{NULL, NULL, 0, NULL}
 };
 
+static struct PyModuleDef Marsh =
+{
+    PyModuleDef_HEAD_INIT,
+    "Marsh", /* name of module */
+    "Marsh Algorithm for Spectral Extraction\n", /* module documentation, may be NULL */
+    -1,   /* size of per-interpreter state of the module, or -1 if the module keeps state in global variables. */
+    MarshMethods
+};
+
 void initMarsh(void){
-	(void) Py_InitModule("Marsh", MarshMethods);
+	return PyModule_Create(&Marsh);
+}
+
+PyMODINIT_FUNC PyInit_Marsh(void)
+{
+    return PyModule_Create(&Marsh);
 }
 
 
