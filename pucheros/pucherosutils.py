@@ -9,7 +9,7 @@ import pyfits
 import os
 import glob
 import tempfile
-import StringIO
+import io
 import pycurl
 from pylab import *
 
@@ -360,7 +360,7 @@ def get_coords(obname,mjd):
 	tf.write("query id %s\n" % ( obname ) )
 	tf.close()
 	values = [("scriptFIle", (pycurl.FORM_FILE, tfile))]
-	output = StringIO.StringIO() 
+	output = io.StringIO() 
 	c = pycurl.Curl()
 	c.setopt(pycurl.URL, "http://simbad.harvard.edu/simbad/sim-script")
 	c.setopt(c.HTTPPOST, values)
@@ -370,7 +370,7 @@ def get_coords(obname,mjd):
 		try:
 			c.perform()
 		except:
-			print 'Trying again to perform query to SIMBAD'
+			print('Trying again to perform query to SIMBAD')
 		else:
 			cond = False
 	c.close()

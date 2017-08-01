@@ -4,7 +4,7 @@ import numpy
 ii = 10
 while ii < 44:
 	inp = 'B_order_'+str(ii)+'.dat'
-	print inp
+	print(inp)
 	f = open(inp,'r')
 	lines = f.readlines()
 	f.close()

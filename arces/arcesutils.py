@@ -125,7 +125,7 @@ def MedianCombine(ImgList, bias = 0.):
     """
     n = len(ImgList)
     if n == 0:
-	print "\t\tWarning: 0 biases"
+	print("\t\tWarning: 0 biases")
 	return 0, 0, 0
     h = pyfits.open(ImgList[0])[0]
     d = h.data

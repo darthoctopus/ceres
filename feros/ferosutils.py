@@ -190,7 +190,7 @@ def FileClassify(diri, log):
 
 		if not dump:
 			h = pyfits.open(archivo)
-			print archivo, h[0].header['HIERARCH ESO DPR TYPE']
+			print(archivo, h[0].header['HIERARCH ESO DPR TYPE'])
 
 			if h[0].header['HIERARCH ESO DPR TYPE'] == 'OBJECT,WAVE' or h[0].header['HIERARCH ESO DPR TYPE'] == 'VELOC,WAVE':
 				simThAr_sci.append(archivo)
@@ -310,7 +310,7 @@ def Lines_mBack(thar, sd,  thres_rel=3, pl=False):
             mask[kk-3:kk+4] = 0
     
     # New, final background estimnate
-    X = np.array( range( len( d ) ) )
+    X = np.array( list(range( len( d ))) )
     K = np.where((sd > 0) & (mask > 0))
 
     bkg = np.zeros( len(sd) )
@@ -347,15 +347,15 @@ def sigma_clip(vec,lim=3.0):
 	return vec
 
 def get_dark(time,dnames,dtimes):
-	print dnames
-	print dtimes
-	print time
+	print(dnames)
+	print(dtimes)
+	print(time)
 	if len(dnames) == 0:
 		return 0.
 	elif len(dnames) == 1:
 		darko = pyfits.getdata(dnames[0])
 		dark  = darko * float(time)/float(dtimes[0])
-		print np.median(darko),np.median(dark)
+		print(np.median(darko),np.median(dark))
 		return darko
 	elif len(dnames) == 2:
 		sc0 = pyfits.getdata(dnames[0]).astype('float')
@@ -364,8 +364,8 @@ def get_dark(time,dnames,dtimes):
 		m = (sc1 - sc0) / (t1 - t0)
 		n = sc1 - m*t1
 		darko =  m*float(time) + n
-		print np.median(sc0),np.median(sc1)
-		print np.median(sc1*time/dtimes[1]),np.median(sc0*time/dtimes[0])
-		print np.median(darko)
+		print(np.median(sc0),np.median(sc1))
+		print(np.median(sc1*time/dtimes[1]),np.median(sc0*time/dtimes[0]))
+		print(np.median(darko))
 		return darko
 

@@ -13,7 +13,7 @@ def getObName(h):
     Get name of object under consideration
     """
     obname = h[0].header['HIERARCH ESO OBS TARG NAME'].upper().replace(' ','')
-    if 'ARCFILE' in h[0].header.keys():
+    if 'ARCFILE' in list(h[0].header.keys()):
     	if h[0].header['ARCFILE'] == 'HARPS.2011-03-29T01:43:58.502.fits':
 		obname = 'HD77338'
     return obname

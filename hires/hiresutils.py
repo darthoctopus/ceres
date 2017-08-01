@@ -197,7 +197,7 @@ def bac_flat(flat,traces,ext):
 	return bac
 			
 def ccd_flat(flat,traces,ext):
-	print ext
+	print(ext)
 	nflat = np.ones(flat.shape)
 	ext = int(np.around(ext))
 	ejex = np.arange(flat.shape[0])
@@ -342,7 +342,7 @@ def bspline(points, n=100, degree=3, periodic=False):
 	x = points[:,0]
 	y = points[:,1]
 
-	t = range(len(points))
+	t = list(range(len(points)))
 	ipl_t = np.linspace(0.0, len(points) - 1, n)
 
 	x_tup = scipy.interpolate.splrep(t, x, k=3)

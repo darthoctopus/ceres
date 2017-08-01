@@ -145,14 +145,14 @@ def clean_orders(c_all,data,exap=5):
     dist2 = ccens[-2]-ccens[-3]
   
     if dist1 < dist2:
-	print 'uno'
+	print('uno')
 	i = nords - 1
     else:
-	print 'dos'
+	print('dos')
 	i = nords - 2
     c_co, c_ob = [],[]
     while i > 0:
-	print i
+	print(i)
         if len(c_co) == 0:
             c_co = c_all[i]
             c_ob = c_all[i-1]
@@ -221,7 +221,7 @@ def scat_flat(d,c_ob,c_co):
 	plot(line)
 	plot(refmins,valmins,'ro')
 	show()
-	print gfd
+	print(gfd)
 	    
 def get_scat(sc,ps,binning):
 	binning = float(binning)

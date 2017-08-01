@@ -114,9 +114,9 @@ def NORM_single(L, F, orden = 1):
 	"""
 	
 	if rellenado:
-		print '!!!!!!!!!!!!!!!!!!!'
+		print('!!!!!!!!!!!!!!!!!!!')
 		Flimpio = FunNorm.Rell(Llimpio.astype("double"),Flimpio.astype("double"),Flimpio.shape[0])
-		print sys.getrefcount(Flimpio)
+		print(sys.getrefcount(Flimpio))
 	
 	"""
 	divido cada orden en 3 y ajusto una recta

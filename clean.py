@@ -56,6 +56,6 @@ def SeeknDestroy(directory):
 dirs2 = getDirs('utils')
 
 for directory in dirs2:
-    print directory
+    print(directory)
     # To each directory, we apply the SeeknDestroy function:
     SeeknDestroy('utils/'+directory)
