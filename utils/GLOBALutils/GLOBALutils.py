@@ -1,3 +1,4 @@
+import statsmodels.api as sm 
 import pyfits
 import numpy as np
 from numpy import median,sqrt,array,exp
@@ -26,7 +27,6 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 global GDATA,P
 
-import statsmodels.api as sm
 lowess = sm.nonparametric.lowess
 
 # Some functions to be used by the pipeline
